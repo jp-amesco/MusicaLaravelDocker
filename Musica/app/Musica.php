@@ -12,9 +12,9 @@ class Musica extends Model
         return $this-> belongsToMany('App\Album');
     }
 
-    //public function estilos(){
-     //   return $this-> belongsTo('App\Estilo');
-   // }
+    public function users(){
+        return $this-> belongsToMany('App\User');
+    }
 
     public function bandas(){
         return $this->belongsToMany('App\Banda');

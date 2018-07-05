@@ -2,14 +2,17 @@
 
 use Illuminate\Database\Seeder;
 use App\Album;
+use App\Banda;
+
 
 class AlbumsTableSeeder extends Seeder{
     public function run(){
-        foreach(range(1, 10) as $i){
-            Album::create([
-                'banda_id' => 1,
-                'nome' => 'Come black',
-                'slug' => 'come-black'
+        $faker = Faker\Factory::create();
+        $banda = Banda::find(2);
+        foreach(range(1, 2) as $i){
+            $album = $banda->albums()->create([
+                'nome'=> $faker->name,
+                'slug'=> $faker->word
             ]);
         }
     }
